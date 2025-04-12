@@ -10,6 +10,8 @@ def preprocess_data(file_path):
     # normalize column names
     df.columns = [col.lower().replace(" ", "_") for col in df.columns]
 
+    df['revenue'] = df['impressions'] * df['cpm'] / 1000
+
     return df
 
 if __name__ == "__main__":
